@@ -36,12 +36,14 @@ A competing "Custom Product Addons Pro" plugin implemented formula-based pricing
 * Simple products only in this version -- no variable-product support
 * Formulas support only +, -, *, /, and parentheses (no exponents, square roots, or conditional logic) -- deliberately, since a richer grammar is a larger safety surface to get right
 * No formula "test" button in the admin beyond the save-time validation -- if a formula is rejected, the error message names exactly what's wrong (an unknown variable, a bad character, division by zero with the values you tried)
+* Requires a Regular Price to be set on the product (even a nominal placeholder) -- this is standard WooCommerce behavior for any product with no price at all, not something this plugin can work around
 
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/hdwebmobile-formula-pricing` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress. WooCommerce must already be installed and active.
 3. Edit a simple product, open its new "Formula Pricing" tab under Product Data, add your fields and formula.
+4. On the product's "General" tab, set a Regular Price -- WooCommerce hides the entire purchase form on a product with no price at all, even with formula pricing enabled, so enter at least a nominal placeholder amount (it will be overridden the moment a customer enters a value).
 
 == How to Use ==
 
