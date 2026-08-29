@@ -1,0 +1,27 @@
+.hdfp-fields-repeater {
+    padding: 0 12px;
+}
+
+.hdfp-field-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.hdfp-field-row input {
+    flex: 1;
+    min-width: 0;
+}
+
+.hdfp-field-key {
+    font-family: monospace;
+}
+
+.hdfp-remove-field {
+    color: #a00;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 1;
+    flex: 0 0 auto;
+}

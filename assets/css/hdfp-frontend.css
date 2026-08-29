@@ -1,0 +1,35 @@
+.hdfp-fields {
+    margin-bottom: 1.5em;
+    padding: 1em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.hdfp-note {
+    margin-top: 0;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.hdfp-field label {
+    display: block;
+    margin-bottom: 0.25em;
+    font-weight: 600;
+}
+
+.hdfp-field input {
+    width: 100%;
+    max-width: 200px;
+}
+
+.hdfp-preview {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 0.25em;
+}
+
+.hdfp-preview-disclaimer {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-top: 0;
+}
