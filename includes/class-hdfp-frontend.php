@@ -99,6 +99,8 @@ final class HDFP_Frontend
             return;
         }
 
+        wp_nonce_field('hdfp_add_to_cart', 'hdfp_add_to_cart_nonce');
+
         echo '<div class="hdfp-fields" data-base-price="' . esc_attr($product->get_price()) . '">';
         echo '<p class="hdfp-note">' . esc_html__('Enter your measurements to see the price update.', 'hdwebmobile-formula-pricing') . '</p>';
 

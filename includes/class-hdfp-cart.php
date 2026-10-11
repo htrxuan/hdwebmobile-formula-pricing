@@ -208,12 +208,21 @@ final class HDFP_Cart
 
     private static function get_submitted_values()
     {
-        // phpcs:ignore WordPress.Security.NonceVerification.Missing -- WooCommerce's own add-to-cart nonce/session flow is verified upstream (WC_Form_Handler / Store API CartController) before this hook fires; every value is validated as numeric and bounds-checked against the product's own field config immediately below.
         if (!isset($_POST['hdfp_field']) || !is_array($_POST['hdfp_field'])) {
             return array();
         }
 
-        // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- see justification above; values are validated as numeric and clamped in collect_variables() before ever reaching the formula evaluator.
+        if (
+            !isset($_POST['hdfp_add_to_cart_nonce'])
+            || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['hdfp_add_to_cart_nonce'])), 'hdfp_add_to_cart')
+        ) {
+            // No valid nonce from our own render_fields() output -- treat as if nothing was
+            // submitted; every field is required, so add-to-cart simply fails validation the
+            // same way it would if the shopper had left the fields blank.
+            return array();
+        }
+
+        // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- nonce-verified above; values are validated as numeric and clamped in collect_variables() before ever reaching the formula evaluator.
         return wp_unslash($_POST['hdfp_field']);
     }
 }
