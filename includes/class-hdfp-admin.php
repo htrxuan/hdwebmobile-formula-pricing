@@ -179,8 +179,17 @@ class HDFP_Admin
         }
     }
 
+    /**
+     * Scoped to the product edit screen only -- never shown on unrelated admin
+     * screens, even though admin_notices itself is a global hook.
+     */
     public function render_formula_error_notice()
     {
+        $screen = get_current_screen();
+        if (!$screen || 'product' !== $screen->id) {
+            return;
+        }
+
         $message = get_transient('hdfp_formula_error_' . get_current_user_id());
         if (!$message) {
             return;
