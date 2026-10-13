@@ -46,5 +46,9 @@
                 debounceTimer = setTimeout(requestPreview, 300);
             });
         });
+
+        // The fields arrive pre-filled with their defaults, so price those straight away
+        // instead of showing the product's placeholder regular price until the first edit.
+        requestPreview();
     });
 })();
