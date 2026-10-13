@@ -89,13 +89,20 @@ class HDFP_Admin
                     <?php esc_html_e('Let customers enter measurements (width, height, quantity, etc.) and price the product from a formula you write using those field names. The formula is checked for safety when you save -- it can only use +, -, *, /, parentheses, numbers, and your own field names below.', 'hdwebmobile-formula-pricing'); ?>
                 </p>
 
-                <p class="form-field" style="padding: 0 12px;">
-                    <label for="hdfp_enabled">
-                        <input type="checkbox" id="hdfp_enabled" name="hdfp_enabled" value="1" <?php checked($enabled); ?> />
-                        <?php esc_html_e('Enable formula pricing for this product', 'hdwebmobile-formula-pricing'); ?>
-                    </label>
+                <p class="form-field">
+                    <label for="hdfp_enabled"><?php esc_html_e('Formula pricing', 'hdwebmobile-formula-pricing'); ?></label>
+                    <input type="checkbox" id="hdfp_enabled" name="hdfp_enabled" value="1" <?php checked($enabled); ?> />
+                    <span class="description"><?php esc_html_e('Enable formula pricing for this product', 'hdwebmobile-formula-pricing'); ?></span>
                 </p>
 
+                <div class="hdfp-field-row hdfp-field-head" aria-hidden="true">
+                    <span><?php esc_html_e('Field label', 'hdwebmobile-formula-pricing'); ?></span>
+                    <span><?php esc_html_e('Variable name', 'hdwebmobile-formula-pricing'); ?></span>
+                    <span><?php esc_html_e('Min', 'hdwebmobile-formula-pricing'); ?></span>
+                    <span><?php esc_html_e('Max', 'hdwebmobile-formula-pricing'); ?></span>
+                    <span><?php esc_html_e('Default', 'hdwebmobile-formula-pricing'); ?></span>
+                    <span class="hdfp-field-head__spacer"></span>
+                </div>
                 <div id="hdfp-fields" class="hdfp-fields-repeater">
                     <?php foreach ($fields as $index => $field) : ?>
                         <?php echo self::render_field_row($index, $field); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- render_field_row() escapes all interpolated values internally. ?>
