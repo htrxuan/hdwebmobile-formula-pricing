@@ -38,6 +38,9 @@ The simplest way to implement formula-based pricing -- passing the merchant's fo
 * No formula "test" button in the admin beyond the save-time validation -- if a formula is rejected, the error message names exactly what's wrong (an unknown variable, a bad character, division by zero with the values you tried)
 * Requires a Regular Price to be set on the product (even a nominal placeholder) -- this is standard WooCommerce behavior for any product with no price at all, not something this plugin can work around
 
+= Enjoying this plugin? =
+If it helps your site, please consider [leaving an honest review on WordPress.org](https://wordpress.org/support/plugin/hdwebmobile-formula-pricing/reviews/#new-post) -- it helps other WordPress users find it. Found a problem or have an idea? Please [open a support topic](https://wordpress.org/support/plugin/hdwebmobile-formula-pricing/) first so it can be fixed.
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/hdwebmobile-formula-pricing` directory, or install the plugin through the WordPress plugins screen directly.
